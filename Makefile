@@ -4,9 +4,11 @@ install:
 format:
 	black *.py src/*.py
 lint:
-	#pylint
+	pylint --disable=R,C *.py src/*.py
 test:
-	#tests
+	python -m pytest -vv --cov=src test_*.py
+build:
+	#build container
 deploy:
 	#deploy
-all: install lint test deploy
+all: install format lint test build deploy
