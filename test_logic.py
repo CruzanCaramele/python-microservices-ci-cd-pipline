@@ -1,4 +1,4 @@
 from src.logic import wiki
 
-def wiki_test():
+def test_wiki():
     assert "god" in wiki()
