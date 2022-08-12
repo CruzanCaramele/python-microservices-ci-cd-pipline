@@ -6,7 +6,7 @@ format:
 lint:
 	pylint --disable=R,C *.py src/*.py
 test:
-	python -m pytest -vv --cov=src test_*.py
+	python -m pytest -vv --cov=src --cov=main test_*.py
 build:
 	#build container
 deploy:
