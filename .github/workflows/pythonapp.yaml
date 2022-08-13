@@ -6,7 +6,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Pull Git Repo
+        uses: actions/checkout@v2
       - name: Set up Python 3.10
         uses: actions/setup-python@v1
         with:
@@ -28,6 +29,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test]
     steps:
+      - name: Pull Git Repo
+        uses: actions/checkout@v2
       - name: Build Container
         run: |
           make build
