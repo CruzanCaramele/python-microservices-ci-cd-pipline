@@ -8,7 +8,7 @@ lint:
 test:
 	python -m pytest -vv --cov=src --cov=main test_*.py
 build:
-	#build container
+	docker build -t deploy-fastapi .
 deploy:
 	#deploy
 all: install format lint test build deploy

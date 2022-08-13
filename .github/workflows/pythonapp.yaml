@@ -3,7 +3,7 @@ name: Python Microservice Application
 on: [push]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,3 +23,11 @@ jobs:
       - name: Test with pytest
         run: |
           make test
+  
+  build:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - name: Build Container
+        run: |
+          make build
